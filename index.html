@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pejy Voalohany - Tabilao</title>
+    <title>Lalao Quiz - Pejy Voalohany</title>
     <style>
         body { 
             background-color: #87CEEB; 
             text-align: center; 
             font-family: sans-serif;
             padding-top: 30px;
+            padding-bottom: 50px;
         }
         h1 { color: #00008b; }
         
-        /* 📊 Haingo ho an'ilay Tabilao */
-        table {
-            width: 90%;
-            max-width: 500px;
-            margin: 30px auto;
-            border-collapse: collapse; /* Manambatra ny tsipika ho tokana */
+        /* 🎮 Haingo ho an'ilay boaty Quiz */
+        .quiz-container {
             background-color: white;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        th, td {
-            padding: 12px;
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
             text-align: left;
-            border-bottom: 1px solid #ddd;
         }
 
-        th {
-            background-color: #00008b;
-            color: white;
+        .fanontaniana {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
         }
 
-        /* Mandoko ny tsipika tsirairay ho miambakavaka */
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+        /* Ny bokotra hisafidianana valiny */
+        .safidy {
+            display: block;
+            width: 100%;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.2s;
+        }
+
+        .safidy:hover {
+            background-color: #e0e0e0;
+            border-color: #00008b;
+        }
+
+        /* Boaty fampisehoana valiny */
+        #vokatra {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+            color: #00008b;
         }
 
         .rohy-pejy2 {
@@ -53,43 +74,42 @@
 </head>
 <body>
 
-    <h1>Ny Lisitry ny Rakitra</h1>
-    <p>Ity ny tabilao mandamina ireo rakitra nampiasaintsika:</p>
+    <h1>Lalao Quiz Laharan'ny 1</h1>
+    <p>Andramo valiana ity fanontaniana tsotra ity mba hitsapana ny fahaizanao!</p>
 
-    <!-- 📊 ITY ILAY CODE TABILAO -->
-    <table>
-        <!-- Loha-lohateny (Ligne 1) -->
-        <tr>
-            <th>Anaran'ny Rakitra</th>
-            <th>Karazany (Type)</th>
-        </tr>
-        <!-- Boaty fidirana (Ligne 2) -->
-        <tr>
-            <td>index.html</td>
-            <td>Code HTML (Pejy 1)</td>
-        </tr>
-        <!-- Boaty fidirana (Ligne 3) -->
-        <tr>
-            <td>pejy2.html</td>
-            <td>Code HTML (Pejy 2)</td>
-        </tr>
-        <!-- Boaty fidirana (Ligne 4) -->
-        <tr>
-            <td>video.mp4</td>
-            <td>Horonantsary (Vidéo)</td>
-        </tr>
-        <!-- Boaty fidirana (Ligne 5) -->
-        <tr>
-            <td>hira.mp3</td>
-            <td>Rakitra Peo (Audio)</td>
-        </tr>
-    </table>
+    <!-- 🎮 BOATY MISY ILAY LALAO -->
+    <div class="quiz-container">
+        <div class="fanontaniana">Inona no renivohitr'i Madagasikara?</div>
+        
+        <!-- Ireo bokotra azo tsindrina -->
+        <button class="safidy" onclick="tsekoValiny(false)">A) Mahajanga</button>
+        <button class="safidy" onclick="tsekoValiny(true)">B) Antananarivo</button>
+        <button class="safidy" onclick="tsekoValiny(false)">C) Toamasina</button>
 
-    <!-- Rohy mankany amin'ny pejy faharoa -->
+        <!-- Toerana hisehoan'ny hoe Marina sa Diso -->
+        <div id="vokatra"></div>
+    </div>
+
+    <!-- 🧠 CODE JAVASCRIPT MPIFEHY NY LALAO -->
+    <script>
+        function tsekoValiny(marina) {
+            let toeranaVokatra = document.getElementById("vokatra");
+            if (marina === true) {
+                toeranaVokatra.innerHTML = "🎉 Marina izany! Lasa ianao!";
+                toeranaVokatra.style.color = "green";
+            } else {
+                toeranaVokatra.innerHTML = "❌ Diso izany! Andramo indray.";
+                toeranaVokatra.style.color = "red";
+            }
+        }
+    </script>
+
+    <br>
     <a href="pejy2.html" class="rohy-pejy2">Handeha hijery ny Vidéo sy Hira ➡️</a>
 
 </body>
 </html>
+
 
 
 
