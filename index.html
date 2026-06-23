@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pejy Voalohany - Tabilao</title>
+    <style>
+        body { 
+            background-color: #87CEEB; 
+            text-align: center; 
+            font-family: sans-serif;
+            padding-top: 30px;
+        }
+        h1 { color: #00008b; }
+        
+        /* 📊 Haingo ho an'ilay Tabilao */
+        table {
+            width: 90%;
+            max-width: 500px;
+            margin: 30px auto;
+            border-collapse: collapse; /* Manambatra ny tsipika ho tokana */
+            background-color: white;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #00008b;
+            color: white;
+        }
+
+        /* Mandoko ny tsipika tsirairay ho miambakavaka */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .rohy-pejy2 {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            background-color: #00008b;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ny Lisitry ny Rakitra</h1>
+    <p>Ity ny tabilao mandamina ireo rakitra nampiasaintsika:</p>
+
+    <!-- 📊 ITY ILAY CODE TABILAO -->
+    <table>
+        <!-- Loha-lohateny (Ligne 1) -->
+        <tr>
+            <th>Anaran'ny Rakitra</th>
+            <th>Karazany (Type)</th>
+        </tr>
+        <!-- Boaty fidirana (Ligne 2) -->
+        <tr>
+            <td>index.html</td>
+            <td>Code HTML (Pejy 1)</td>
+        </tr>
+        <!-- Boaty fidirana (Ligne 3) -->
+        <tr>
+            <td>pejy2.html</td>
+            <td>Code HTML (Pejy 2)</td>
+        </tr>
+        <!-- Boaty fidirana (Ligne 4) -->
+        <tr>
+            <td>video.mp4</td>
+            <td>Horonantsary (Vidéo)</td>
+        </tr>
+        <!-- Boaty fidirana (Ligne 5) -->
+        <tr>
+            <td>hira.mp3</td>
+            <td>Rakitra Peo (Audio)</td>
+        </tr>
+    </table>
+
+    <!-- Rohy mankany amin'ny pejy faharoa -->
+    <a href="pejy2.html" class="rohy-pejy2">Handeha hijery ny Vidéo sy Hira ➡️</a>
+
+</body>
+</html>
+
+
+
