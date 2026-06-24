@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🔍 IRETO DINGANA ROA VAOVAO IRETO NO NAMPIDIRINA HO AN'NY GOOGLE -->
+    <meta name="description" content="Lalao Quiz lehibe misy fanontaniana 20 momba an'i Madagasikara miaraka amin'ny timer sy feo.">
+    <meta name="keywords" content="Quiz Gasy, Lalao Madagasikara, Freddy Quiz, Tranonkala Gasy">
+    
     <title>Quiz Gasy</title>
     <style>
         body { background: linear-gradient(135deg, #74ebd5, #9ecefa); min-height: 100vh; text-align: center; font-family: sans-serif; margin: 0; padding: 20px; }
@@ -84,12 +90,13 @@
         function faranNyLalao() {
             clearInterval(timerInterval); document.getElementById("timerText").parentElement.style.display = "none";
             var txt = score >= 15 ? "🏆 Idole mihitsy! Tena mahay ianao." : "👍 Tsara be! Mahafantatra an'i Madagasikara ianao.";
-            document.getElementById("quizBox").innerHTML = '<div class="boaty-vokatra"><div>🏁 Tapitra ny lalao!</div><div style="font-size: 40px; margin: 15px 0;">📊 Isa: ' + score + ' / ' + quizData.length + '</div><div style="font-size: 16px; color: #555; margin-bottom: 15px;">' + txt + '</div><button class="btn-restart" onclick="window.location.reload()">Hilalao indray 🔄</button></div>';
+            document.getElementById("quizBox").innerHTML = '<div class="boaty-vokatra"><div>🏁 Tapitra the lalao!</div><div style="font-size: 40px; margin: 15px 0;">📊 Isa: ' + score + ' / ' + quizData.length + '</div><div style="font-size: 16px; color: #555; margin-bottom: 15px;">' + txt + '</div><button class="btn-restart" onclick="window.location.reload()">Hilalao indray 🔄</button></div>';
         }
         famoronan_panontaniana();
     </script>
 </body>
 </html>
+
 
 
      
