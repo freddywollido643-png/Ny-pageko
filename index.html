@@ -1,114 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lalao Quiz - Pejy Voalohany</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Gasy</title>
     <style>
-        body { 
-            background-color: #87CEEB; 
-            text-align: center; 
-            font-family: sans-serif;
-            padding-top: 30px;
-            padding-bottom: 50px;
-        }
-        h1 { color: #00008b; }
-        
-        /* 🎮 Haingo ho an'ilay boaty Quiz */
-        .quiz-container {
-            background-color: white;
-            max-width: 450px;
-            margin: 30px auto;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
-            text-align: left;
-        }
-
-        .fanontaniana {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        /* Ny bokotra hisafidianana valiny */
-        .safidy {
-            display: block;
-            width: 100%;
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 12px;
-            margin: 8px 0;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: left;
-            transition: 0.2s;
-        }
-
-        .safidy:hover {
-            background-color: #e0e0e0;
-            border-color: #00008b;
-        }
-
-        /* Boaty fampisehoana valiny */
-        #vokatra {
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 15px;
-            color: #00008b;
-        }
-
-        .rohy-pejy2 {
-            display: inline-block;
-            margin-top: 20px;
-            color: white;
-            background-color: #00008b;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
+        body { background: linear-gradient(135deg, #74ebd5, #9ecefa); min-height: 100vh; text-align: center; font-family: sans-serif; margin: 0; padding: 20px; }
+        h1 { color: #00008b; font-size: 28px; }
+        .timer-box { font-size: 24px; font-weight: bold; color: #ff4757; background: white; display: inline-block; padding: 5px 15px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 10px; }
+        .quiz-card { background: white; max-width: 450px; margin: 10px auto; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); text-align: left; }
+        .progress-bar { color: #888; font-size: 14px; font-weight: bold; margin-bottom: 10px; }
+        .fanontaniana { font-size: 18px; font-weight: bold; color: #222; margin-bottom: 20px; }
+        .safidy { display: block; width: 100%; background: #f8f9fa; color: #333; padding: 12px 15px; margin: 10px 0; border: 2px solid #e9ecef; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; text-align: left; }
+        .safidy:hover { background: #00008b; color: white; border-color: #00008b; }
+        .boaty-vokatra { text-align: center; font-size: 22px; font-weight: bold; color: #00008b; padding: 20px; }
+        .btn-restart { background: #28a745; color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 10px; cursor: pointer; font-weight: bold; }
+        .rohy-pejy2 { display: inline-block; margin-top: 25px; color: #00008b; font-weight: bold; text-decoration: none; }
     </style>
 </head>
 <body>
-
-    <h1>Lalao Quiz Laharan'ny 1</h1>
-    <p>Andramo valiana ity fanontaniana tsotra ity mba hitsapana ny fahaizanao!</p>
-
-    <!-- 🎮 BOATY MISY ILAY LALAO -->
-    <div class="quiz-container">
-        <div class="fanontaniana">Inona no renivohitr'i Madagasikara?</div>
-        
-        <!-- Ireo bokotra azo tsindrina -->
-        <button class="safidy" onclick="tsekoValiny(false)">A) Mahajanga</button>
-        <button class="safidy" onclick="tsekoValiny(true)">B) Antananarivo</button>
-        <button class="safidy" onclick="tsekoValiny(false)">C) Toamasina</button>
-
-        <!-- Toerana hisehoan'ny hoe Marina sa Diso -->
-        <div id="vokatra"></div>
+    <h1>✨ Grand Mega Quiz Gasy 🇲🇬</h1>
+    <div class="timer-box">⏳ <span id="timerText">10</span>s</div>
+    <div class="quiz-card" id="quizBox">
+        <div class="progress-bar" id="progressText">Fanontaniana 1 / 20</div>
+        <div class="fanontaniana" id="questionText">Inona no renivohitr'i Madagasikara?</div>
+        <div id="optionsBox"></div>
     </div>
-
-    <!-- 🧠 CODE JAVASCRIPT MPIFEHY NY LALAO -->
+    <a href="pejy2.html" class="rohy-pejy2">➡️ Handeha hijery ny Vidéo sy Hira</a>
     <script>
-        function tsekoValiny(marina) {
-            let toeranaVokatra = document.getElementById("vokatra");
-            if (marina === true) {
-                toeranaVokatra.innerHTML = "🎉 Marina izany! Lasa ianao!";
-                toeranaVokatra.style.color = "green";
-            } else {
-                toeranaVokatra.innerHTML = "❌ Diso izany! Andramo indray.";
-                toeranaVokatra.style.color = "red";
-            }
+        var quizData = [
+            { q: "Inona no renivohitr'i Madagasikara? 🗺️", opt: ["Mahajanga", "Antananarivo", "Toamasina"], correct: 1 },
+            { q: "Inona ny loko ambony indrany amin'ny sainam-pirenena malagasy? 🇲🇬", opt: ["Mena", "Maitso", "Fotsy"], correct: 2 },
+            { q: "Inona no biby mampiavaka an'i Madagasikara ihany? 🐒", opt: ["Gidro (Maki)", "Liona", "Elefanta"], correct: 0 },
+            { q: "Iza no mpanjaka lahy nalaza nampiray an'i Madagasikara? 👑", opt: ["Radama II", "Andrianampoinimerina", "Ranavalona I"], correct: 1 },
+            { q: "Inona no lakandrano lava indrindra mampitohy an'i Toamasina sy Farafangana? 🛶", opt: ["Suez", "Pangalanes", "Mozambique"], correct: 1 },
+            { q: "Firy ny isan'ny faritra (Régions) eto Madagasikara ankehitriny? 🏢", opt: ["Faritra 22", "Faritra 23", "Faritra 18"], correct: 1 },
+            { q: "Inona no mofo fanao amin'ny vary toto mampiavaka ny marainan'ny Malagasy? 🥞", opt: ["Mofo gasy", "Mofo baolina", "Mofo dipaina"], correct: 0 },
+            { q: "Iza no mpanjakavavy malagasy farany nanjaka talohan'ny fanjanahan-tany? 👑", opt: ["Ranavalona I", "Ranavalona II", "Ranavalona III"], correct: 2 },
+            { q: "Inona no ranomasina manasaraka an'i Madagasikara amin'i Afrika? 🌊", opt: ["Ranomasina Mena", "Hanosan'i Mozambique", "Ranomasimbe Atlantika"], correct: 1 },
+            { q: "Inona no anaran'ilay vorona lehibe indrindra efa lany tamingana teto Madagasikara? 🦅", opt: ["Dodo", "Vorompatra (Aepyornis)", "Papango"], correct: 1 },
+            { q: "Inona no ala vato maranitra malaza any avaratra sy andrefan'i Madagasikara? ⛰️", opt: ["Tsingy", "Isalo", "Ankaratra"], correct: 0 },
+            { q: "Inona no fitaovana fampiasa amin'ny hira nentim-paharazana vita amin'ny volobe? 🪕", opt: ["Akorandriaka", "Valiha", "Sodina"], correct: 1 },
+            { q: "Hazo firy karazana amin'ireo Baobab misy no tsy hita raha tsy eto Madagasikara? 🌳", opt: ["Karakana 6", "Karazana 2", "Karazana 1"], correct: 0 },
+            { q: "Inona no anaran'ilay tendrombohitra avo indrindra eto Madagasikara? 🏔️", opt: ["Ankaratra", "Maromokotro", "Tsiafajavona"], correct: 1 },
+            { q: "Inona no fomba nentim-paharazana malagasy mamadika lamban'ny havana efa maty? 🦴", opt: ["Famadihana", "Fidradradradrana", "Fanompoambe"], correct: 0 },
+            { q: "Inona no renivohitry ny faritanin'ny Antsiranana any avaratra? ⚓", opt: ["Diego-Suarez", "Sambava", "Nosy Be"], correct: 0 },
+            { q: "Inona no nosy kely malaza amin'ny fizahan-tany any avaratra andrefana? 🏝️", opt: ["Sainte Marie", "Nosy Be", "Nosy Boraha"], correct: 1 },
+            { q: "Inona no anaran'ilay biby mpiremby lehibe indrindra mihinana gidro any an'ala? 🐆", opt: ["Fosa", "Alika dia", "Saka loha"], correct: 0 },
+            { q: "Inona no vola miasa ofisialy eto Madagasikara mampiasa ny ariary? 💵", opt: ["Franc Malgache", "Ariary Malagasy", "Euro Gasy"], correct: 1 },
+            { q: "Inona no dikan'ny teny hoe 'Manoa' amin'ny teny malagasy tranainy?🤝", opt: ["Manda", "Manaraka na Manaiky", "Miteny lainga"], correct: 1 }
+        ];
+        var currentQuestion = 0, score = 0, timeLeft = 10, timerInterval;
+        function lalaovyFeo(marina) {
+            try {
+                var AudioCtx = window.AudioContext || window.webkitAudioContext; if (!AudioCtx) return;
+                var ctx = new AudioCtx(), osc = ctx.createOscillator(), gain = ctx.createGain();
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.frequency.setValueAtTime(marina ? 600 : 150, ctx.currentTime);
+                osc.type = marina ? 'sine' : 'sawtooth'; gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                osc.start(); osc.stop(ctx.currentTime + (marina ? 0.15 : 0.3));
+            } catch(e) {}
         }
+        function atombohyTimer() {
+            timeLeft = 10; document.getElementById("timerText").innerHTML = timeLeft; clearInterval(timerInterval);
+            timerInterval = setInterval(function() {
+                timeLeft--; document.getElementById("timerText").innerHTML = timeLeft;
+                if (timeLeft <= 0) { clearInterval(timerInterval); lalaovyFeo(false); currentQuestion++; famoronan_panontaniana(); }
+            }, 1000);
+        }
+        function famoronan_panontaniana() {
+            if (currentQuestion < quizData.length) {
+                document.getElementById("progressText").innerHTML = "Fanontaniana " + (currentQuestion + 1) + " / " + quizData.length;
+                document.getElementById("questionText").innerHTML = quizData[currentQuestion].q;
+                var html = "", opts = quizData[currentQuestion].opt;
+                for (var i = 0; i < opts.length; i++) { html += '<button class="safidy" onclick="tsekoValiny(' + i + ')">' + opts[i] + '</button>'; }
+                document.getElementById("optionsBox").innerHTML = html; atombohyTimer();
+            } else { faranNyLalao(); }
+        }
+        function tsekoValiny(idx) {
+            clearInterval(timerInterval);
+            if (idx === quizData[currentQuestion].correct) { score++; lalaovyFeo(true); } else { lalaovyFeo(false); }
+            currentQuestion++; setTimeout(famoronan_panontaniana, 400);
+        }
+        function faranNyLalao() {
+            clearInterval(timerInterval); document.getElementById("timerText").parentElement.style.display = "none";
+            var txt = score >= 15 ? "🏆 Idole mihitsy! Tena mahay ianao." : "👍 Tsara be! Mahafantatra an'i Madagasikara ianao.";
+            document.getElementById("quizBox").innerHTML = '<div class="boaty-vokatra"><div>🏁 Tapitra ny lalao!</div><div style="font-size: 40px; margin: 15px 0;">📊 Isa: ' + score + ' / ' + quizData.length + '</div><div style="font-size: 16px; color: #555; margin-bottom: 15px;">' + txt + '</div><button class="btn-restart" onclick="window.location.reload()">Hilalao indray 🔄</button></div>';
+        }
+        famoronan_panontaniana();
     </script>
-
-    <br>
-    <a href="pejy2.html" class="rohy-pejy2">Handeha hijery ny Vidéo sy Hira ➡️</a>
-
 </body>
 </html>
+
+
+     
+
+
+
+
 
 
 
